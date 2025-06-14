@@ -1,30 +1,38 @@
-<h1>Hello world</h1>
-<body>Add commentMore actions
-  <form
-        name="input" 
-        action="https://formspree.io/f/xrgjadad" 
-        method="POST"
-        style="border: 3px solid green; width:50%"
->
-    <div style="padding:10px;">
-      <label style="width:100%">
-        Your email:
-      </label>
-      <input type="email" name="email">
-    </div>
-    <div style="padding:10px">
-      <label style="width:100%">
-        Your message:
-      </label>
-      <textarea name="message"></textarea>
-    </div>
-  <!-- your other form fields go here -->
-    <input type="hidden" name="_subject" value="New query submitted" />
-    <input type="hidden" name="_next" value="https://ruchibahl18.github.io/superlazycoder.github.io/thanks" />
-    <div style="display:flex;width:100%;justify-content:center;padding:10px">
-      <input type="submit" value="Send" />
-    </div>
-  
-  Add commentMore actions
-</form>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GPS Tracker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+        // Lấy parameters từ URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const lat = urlParams.get('lat');
+        const lng = urlParams.get('lng');
+        
+        // Tạo deep link cho app
+        const appDeepLink = `gps-tracker://cuongvc12898.github.io/?lat=${lat}&lng=${lng}`;
+        
+        // Link đến Play Store
+        const playStoreLink = "https://play.google.com/store/apps/details?id=com.roosterx.gpstracker";
+        
+        // Kiểm tra xem có phải mobile không
+        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+        
+        if (isMobile) {
+            // Thử mở app trước
+            window.location.href = appDeepLink;
+            
+            // Nếu không mở được app sau 2 giây, chuyển đến Play Store
+            setTimeout(function() {
+                window.location.href = playStoreLink;
+            }, 2000);
+        } else {
+            // Nếu không phải mobile, chuyển đến Play Store
+            window.location.href = playStoreLink;
+        }
+    </script>
+</head>
+<body>
+    <h1>Redirecting to GPS Tracker...</h1>
 </body>
+</html>
